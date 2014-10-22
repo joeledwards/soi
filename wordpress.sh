@@ -1,11 +1,11 @@
 #!/bin/bash
 
-echo "Stopping MySQL container..."
-docker stop wordpress_mysql
+echo "Terminating MySQL container..."
+docker kill wordpress_mysql
 echo "Removing MySQL container..."
 docker rm wordpress_mysql
 echo "Starting MySQL container..."
-docker run --name=wordpress_mysql -e MYSQL_ROOT_PASSWORD=root -d -p 0.0.0.0:3306:3306 mysql:5.6.21
+docker run --name=wordpress_mysql -e MYSQL_ROOT_PASSWORD=root -p 3306:3306 -d mysql:5.6.21
 
 echo "Waiting for MySQL to start..."
 tries=10
@@ -24,12 +24,12 @@ if [[ $result -ne 0 ]]; then
 else
     echo "MySQL is running."
 
-    echo "Stopping Wordpress container..."
-    docker stop wordpress
+    echo "Terminating Wordpress container..."
+    docker kill wordpress
     echo "Removing Wordpress container..."
     docker rm wordpress
     echo "Starting Wordpress container..."
-    docker run -d --name=wordpress --link=wordpress_mysql:mysql -e -p 0.0.0.0:8080:8080 wordpress:4.0.0
+    docker run --name=wordpress --link=wordpress_mysql:mysql -p 8080:80 -d wordpress:4.0.0
 
     echo "Wordpress started at http://localhost:8080"
 fi
