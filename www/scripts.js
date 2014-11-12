@@ -1,3 +1,8 @@
+var Button = ReactBootstrap.Button;
+var NavBar = ReactBootstrap.NavBar;
+var Nav = ReactBootstrap.Nav;
+var NavItem = ReactBootstrap.NavItem;
+
 var menus = [
     {
         title : "Home",
@@ -33,34 +38,18 @@ var App = React.createClass({
     render: function() {
         return (
         <div>
-            <Menu />
+            <NavBar>
+                <Nav>
+                {
+                    menus.map(function(item, index) {
+                        return <NavItem key={item.title} href={'#' + item.path}>{item.title}</NavItem>;
+                    })
+                }
+                </Nav>
+            </NavBar>
             <Content />
         </div>
         );
-    }
-});
-
-var Menu = React.createClass({
-    render: function() {
-        return (
-        <div name="menu">
-            <ul>{
-                menus.map(function(item, index) {
-                    return <MenuItem title={item.title} path={'#' + item.path} />;
-                })
-            }</ul>
-        </div>
-        );
-    }
-});
-
-var MenuItem = React.createClass({
-    render: function() {
-        return (
-        <li>
-            <a href={this.path}>{this.title}</a>
-        </li>
-        )
     }
 });
 
