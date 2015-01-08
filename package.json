@@ -1,0 +1,19 @@
+{
+    "name" : "SOI",
+    "version" : "2.0.0",
+    "private" : true,
+
+    "dependencies" : {
+        "lodash" : "~2",
+
+        "beefy" : "~2",
+        "gulp" : "~3",
+        "node-static" : "~0.7",
+        "browserify" : "~8",
+        "watchify" : "~2"
+    },
+
+    "scripts" : {
+        "start" : "beefy start"
+    }
+}
