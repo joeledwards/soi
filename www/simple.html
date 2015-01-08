@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="require.js"></script>
+    <!--link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" /-->
 
-    <script data-main="scripts/soi-config" src="scripts/require.js"></script>
     <!--script src="bower_components/jquery/dist/jquery.min.js"></script-->
     <!--script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script-->
 
@@ -13,5 +13,10 @@
 </head>
 <body>
     <div id="app"></div>
+    <script type="text/jsx">
+        {
+            require('react-bootstrap');  
+        }
+    </script>
 </body>
 </html>
