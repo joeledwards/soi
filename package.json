@@ -3,17 +3,26 @@
     "version" : "2.0.0",
     "private" : true,
 
-    "dependencies" : {
-        "lodash" : "~2",
+    "main" : "server",
 
-        "beefy" : "~2",
-        "gulp" : "~3",
+    "dependencies" : {
+        "db-migrate" : "~0.8",
+        "gulp" : "*",
+        "gulp-jasmine" : "*",
+        "gulp-jshint" : "*",
+        "jasmine" : "*",
+        "jshint" : "*",
+        "json3" : "~3",
+        "lodash" : "~2",
+        "moment" : "~2",
+        "node-inspector" : "*",
         "node-static" : "~0.7",
-        "browserify" : "~8",
-        "watchify" : "~2"
+        "q" : "~1",
+        "queue-async" : "~1",
+        "sqlite3" : "~3"
     },
 
     "scripts" : {
-        "start" : "beefy start"
+        "start" : "node server"
     }
 }
